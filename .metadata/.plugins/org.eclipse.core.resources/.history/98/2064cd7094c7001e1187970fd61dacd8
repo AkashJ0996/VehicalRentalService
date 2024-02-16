@@ -1,0 +1,39 @@
+package com.auto.in.services.admin;
+
+import org.springframework.stereotype.Service;
+
+import com.auto.in.dto.CarDto;
+import com.auto.in.entities.Car;
+import com.auto.in.repository.CarRepository;
+
+import io.jsonwebtoken.io.IOException;
+import lombok.RequiredArgsConstructor;
+
+@Service
+@RequiredArgsConstructor
+public class AdminServiceImpl implements AdminService {
+	
+	private final CarRepository carRepository;
+
+	@Override
+	public boolean postCar(CarDto carDto)throws IOException{
+		try {
+		Car car = new Car();
+		car.setBrand(carDto.getBrand());
+		car.setColor(carDto.getColor());
+		car.setName(carDto.getName());
+		car.setPrice(carDto.getPrice());
+		car.setType(carDto.getType());
+		car.setTransmission(carDto.getTransmission());
+		car.setDescription(carDto.getDescription());
+		car.setImage(carDto.getImage().getBytes());
+		
+		carRepository.save(car);
+		return true;
+		}catch (Exception e) {
+			return false;
+		}
+	
+	}
+
+}

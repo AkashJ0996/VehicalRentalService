@@ -1,0 +1,96 @@
+<nav *ngIf="!isAdminLoggedIn && !isCustomerLoggedIn"  class="navbar navbar-expand-lg navbar-dark  ">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/login">Vehical Rental Service</a>
+    <button
+      data-mdb-collapse-init
+      class="navbar-toggler"
+      type="button"
+      data-mdb-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/login" routerLinkActive="active">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/signup" routerLinkActive="active">SignUp</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<nav *ngIf="isAdminLoggedIn" class="navbar navbar-expand-lg navbar-dark  ">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/login">LoggedIn Admin</a>
+    <button
+      data-mdb-collapse-init
+      class="navbar-toggler"
+      type="button"
+      data-mdb-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/admin/dashboard" routerLinkActive="active">Dashboard</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/admin/cars" routerLinkActive="active">Post Cars</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/admin/bookings" routerLinkActive="active">Bookings</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/admin/search" routerLinkActive="active">Search</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" (click)="logout()" routerLinkActive="active">Logout</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<nav *ngIf="isCustomerLoggedIn" class="navbar navbar-expand-lg navbar-dark  ">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/login">LoggedIn Customer</a>
+    <button
+      data-mdb-collapse-init
+      class="navbar-toggler"
+      type="button"
+      data-mdb-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/customer/dashboard" routerLinkActive="active">Dashboard</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/customer/my_bookings" routerLinkActive="active">My Bookings</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/customer/search" routerLinkActive="active">Search</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" (click)="logout()" routerLinkActive="active">Logout</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<router-outlet></router-outlet>

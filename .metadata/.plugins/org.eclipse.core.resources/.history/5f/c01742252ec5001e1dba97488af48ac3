@@ -1,0 +1,5 @@
+package com.auto.in.services.jwt;
+
+public interface UserService {
+
+}

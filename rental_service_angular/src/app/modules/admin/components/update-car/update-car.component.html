@@ -1,0 +1,139 @@
+<div class="container h-100 mt-5">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+    <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+        <div class="card" style="border-radius: 15px;">
+        <div class="card-body p-5">
+            <h2 class="text-uppercase text-center mb-5">Update Vehicle </h2>
+            
+            <form [formGroup]="updateForm">
+
+                <div class="form-group mb-3">
+                <div class="row">
+                    <div class="col col d-flex justify-content-center align-items-center">
+                        <label class="file-upload-label ">
+                            <input type="file" id="upload_profile_image" class="form-control form-control-lg" 
+                accept="image/x-png,image/gif ,image/jpeg" (change)="onFileSelected($event)" />
+                        </label>
+                    </div>
+                    <hr>
+                </div>
+                <div class="row">
+                    <div *ngIf="imagePreview" class="col d-flex justify-content-center align-items-center">
+                        <div class="square-image">
+                            <img [src]="imagePreview" alt="Existing Image" class="img-fluid preview-image">
+                        </div>
+                    </div>
+                    <div *ngIf="existingImage" class="col d-flex justify-content-center align-items-center">
+                        <div class="square-image">
+                            <img [src]="existingImage" alt="Existing Image" class="img-fluid preview-image">
+                        </div>
+                    </div>
+                </div>
+                </div>
+                
+
+                <div class="form-group mb-3">
+                    <select class="form-control" formControlName="brand">
+                        <option value="" disabled selected>Select a brand name</option>
+                        <ng-container *ngFor="let brand of listOfBrands">
+                            <option [value]="brand">{{brand}}</option>
+                        </ng-container>
+                    </select>
+                    <h6 class="alert alert-danger" *ngIf="updateForm.get('brand').invalid && updateForm.get('brand').touched">
+                        This feild can not be empty 
+                    </h6>
+                    <label class="form-label" for="form3Example4cg">Brand of Vehicle</label>
+                    <div class="invalid-feedback">This Input is Required!</div>
+                </div>
+          
+            <div class="form-outline mb-3">
+                <input type="text" id="form3Example1cg" class="form-control form-control-lg" formControlName="name"/>
+                <h6 class="alert alert-danger" *ngIf="updateForm.get('name').invalid && updateForm.get('name').touched">
+                    This feild can not be empty 
+                </h6>
+                <label class="form-label" for="form3Example1cg">Car Name</label>
+            </div>
+     
+
+           
+                <div class="form-group mb-3">
+                    <select class="form-control" formControlName="type" required>
+                        <option value="" disabled selected>Select a Type</option>
+                        <ng-container *ngFor="let type of listOfTypes">
+                            <option [value]="type">{{type}}</option>
+                        </ng-container>
+                    </select>
+                    <h6 class="alert alert-danger" *ngIf="updateForm.get('type').invalid && updateForm.get('type').touched">
+                        This feild can not be empty 
+                    </h6>
+                    <label class="form-label" for="form3Example4cg">Type of Vehicle</label>
+                    <div class="invalid-feedback">This Input is Required!</div>
+                </div>
+           
+
+         
+                <div class="form-group mb-3">
+                    <select class="form-control" formControlName="transmission" required>
+                        <option value="" disabled selected>Select a Transmission</option>
+                        <ng-container *ngFor="let transmission of listOfTransmission">
+                            <option [value]="transmission">{{transmission}}</option>
+                        </ng-container>
+                    </select>
+                    <h6 class="alert alert-danger" *ngIf="updateForm.get('transmission').invalid && updateForm.get('transmission').touched">
+                        This feild can not be empty 
+                    </h6>
+                    <label class="form-label" for="form3Example4cg">Mode of Transmission</label>
+                    <div class="invalid-feedback">This Input is Required!</div>
+                </div>
+       
+           
+                <div class="form-group mb-3">
+                    <select class="form-control" formControlName="color" required>
+                        <option value="" disabled selected>Select a Color</option>
+                        <ng-container *ngFor="let color of  listOfColors">
+                            <option [value]="color">{{color}}</option>
+                        </ng-container>
+                    </select>
+                    <h6 class="alert alert-danger" *ngIf="updateForm.get('color').invalid && updateForm.get('color').touched">
+                        This feild can not be empty 
+                    </h6>
+                    <label class="form-label" for="form3Example4cg">Color of Vehicle</label>
+                    <div class="invalid-feedback">This Input is Required!</div>
+                </div>
+           
+            
+            
+                <div class="form-group mb-3">
+                <input type="text" id="form3Example4cg" class="form-control form-control-lg" formControlName="price"  />
+                <h6 class="alert alert-danger" *ngIf="updateForm.get('price').invalid && updateForm.get('price').touched">
+                    This feild can not be empty 
+                </h6>
+                <label class="form-label" for="form3Example4cg">Price</label>
+                    <div class="invalid-feedback">This Input is Required!</div>
+                </div>
+            
+
+           
+                <div class="mb-3">
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="1" formControlName="description"></textarea>
+                    <h6 class="alert alert-danger" *ngIf="updateForm.get('description').invalid && updateForm.get('description').touched">
+                        This feild can not be empty 
+                    </h6>
+                    <label for="exampleFormControlTextarea1" class="form-label">Description</label>
+                  </div>
+           
+
+            <div class="d-flex justify-content-center">
+                <button type="button"
+                class="btn btn-primary btn-block btn-lg col-12 " (click)="updateCar()" >Update</button>
+                
+            </div>
+
+            </form>
+
+        </div>
+        </div>
+    </div>
+    </div>
+</div>
+

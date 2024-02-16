@@ -1,0 +1,38 @@
+<table class ="table table-striped table-bordered">
+    <thead class="thead-dark">
+        <tr>
+            <th  style="font-weight: bolder; color: #353573;">Username</th>
+            <th  style="font-weight: bolder; color: #353573;">Email</th>
+            <th  style="font-weight: bolder; color: #353573;">From Date</th>
+            <th  style="font-weight: bolder; color: #353573;">To Date</th>
+            <th  style="font-weight: bolder; color: #353573;">Days</th>
+            <th  style="font-weight: bolder; color: #353573;">Price</th>
+            <th  style="font-weight: bolder; color: #353573;">Status</th>
+            <th  style="font-weight: bolder; color: #353573;">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let booking of bookings">
+            <td>{{ booking.username }}</td>
+            <td>{{ booking.email }}</td>
+            <td>{{ booking.fromDate | date : 'MMM d,y' }}</td>
+            <td>{{ booking.toDate | date : 'MMM d,y' }}</td>
+            <td>{{ booking.days }}</td>
+            <td>{{ booking.price }}</td>
+            <td>
+                <strong [ngStyle]="{'color': booking.status === 'APPROVED' ? 'green' : booking.status === 'REJECTED' ? 'red' : booking.status === 'PENDING' ?'#6c757d': ''}">
+                    {{ booking.status }}
+                </strong>
+            </td>
+            <td>
+                <span *ngIf="booking.status == 'PENDING' ">
+                    <button style="margin-left: 10px;" class="btn btn-success"
+                    (click)="changeBookingStatus(booking.id,'Approve')">Approve</button>
+                    <button style="margin-left: 10px;" class="btn  btn-danger"
+                    (click)="changeBookingStatus(booking.id,'Reject')">Reject</button>
+                </span>
+            </td>
+        </tr>
+    </tbody>
+
+<table>

@@ -1,0 +1,5 @@
+package com.auto.in.entities;
+
+public class Car {
+
+}

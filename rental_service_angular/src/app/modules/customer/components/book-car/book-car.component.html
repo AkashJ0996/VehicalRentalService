@@ -1,0 +1,44 @@
+<div style="background-color: #d9d5ec; min-height: 91vh;" *ngIf="car">
+    <div style="padding-top: 10px;">
+        <div class="child" style="margin-top: 10px;">
+            <div class="row">
+                <div class="col-8">
+                    <img [src]="processedImage" class="profile" alt="profile"
+                        style="height: 130px; width: 200px; border-radius: 10px;" />
+                </div>
+                <div class="col-16">
+                    <h2 style="cursor: pointer; color: rgb(35, 35, 73);">
+                        {{car.brand}}-{{car.name}}
+                    </h2>
+                    <p class="card-text"> {{car.description}}</p>
+                    <hr>
+                    <h5>Price : <b>${{car.price}}</b> - Color : <b>{{car.color}} </b>- Transmission :
+                        <b>{{car.transmission}}</b> - Type : <b>{{car.type}}</b>
+                    </h5>
+                    <hr>
+                    <form [formGroup]="validateForm">
+                        <div class="form-group" style="padding-top: 10px; margin-right: 50px; width: 50%;">
+                            <label for="fromDate">From Date</label>
+                            <input type="date"  class="form-control" id="fromDate" formControlName="fromDate"
+                                placeholder="From Date" >
+                        </div>
+                        <div class="form-group" style="margin-left: 50px; width: 50%;">
+                            <label for="toDate">To Date</label>
+                            <input type="date"  class="form-control" id="toDate" formControlName="toDate" 
+                                placeholder="To Date" >
+                        </div>
+                        <div class="col-md-2 "  style="margin-left: 80%; padding-top: 10px; ">
+                            <button  class="btn custom-button btn-block" style="width: 120%; color: white; background-color: rgb(35, 35, 73);"
+                                (click)="bookACar(validateForm.value)">Book Car</button>
+                        </div>
+                    </form>
+                    <hr>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div>
+
+
+</div>

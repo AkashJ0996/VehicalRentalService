@@ -1,0 +1,15 @@
+package com.auto.in.services.admin;
+
+import org.springframework.stereotype.Service;
+
+import com.auto.in.repository.CarRepository;
+
+import lombok.RequiredArgsConstructor;
+
+@Service
+@RequiredArgsConstructor
+public class AdminServiceImpl implements AdminService {
+	
+	private final CarRepository carRepository;
+
+}

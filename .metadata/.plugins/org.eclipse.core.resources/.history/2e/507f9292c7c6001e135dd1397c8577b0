@@ -1,0 +1,5 @@
+package com.auto.in.repository;
+
+public interface CarRepository {
+
+}

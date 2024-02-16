@@ -1,0 +1,7 @@
+.profile{
+    height: 180px;
+    width: 180px;
+    margin-bottom: 5px;
+    object-fit: cover;
+    border-radius: 30%;
+} 

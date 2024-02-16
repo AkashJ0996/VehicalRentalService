@@ -1,0 +1,58 @@
+<div class="container h-100 mt-5">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+    <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+        <div class="card" style="border-radius: 15px;">
+        <div class="card-body p-5">
+            <h2 class="text-uppercase text-center mb-5">Login to your account</h2>
+            <div class="alert alert-success" role="alert" *ngIf="falseLogged">
+                Login Failed  !... , Bad Credentials . 
+                <button style="color: red; background-color: white;" (click)="removemsg()" type="button" data-bs-dismiss = "alert" aria-label="Close">x</button>
+            </div>
+                <form [formGroup]="loginForm">
+                    <!-- Email input -->
+                    <div class="form-outline mb-4">
+                    <input type="email" id="form2Example1" class="form-control" formControlName="email"/>
+                    <label class="form-label" for="form2Example1">Email address</label>
+                    <div class="alert alert-danger" *ngIf="loginForm.get('email').invalid && loginForm.get('email').touched">
+                        ***This field can not be null or invalid***
+                   </div>
+                    </div>
+                
+                    <!-- Password input -->
+                    <div class="form-outline mb-4">
+                    <input type="password" id="form2Example2" class="form-control" formControlName="password" />
+                    <label class="form-label" for="form2Example2">Password</label>
+                    <div class="alert alert-danger" *ngIf="loginForm.get('password').invalid && loginForm.get('password ').touched">
+                        ***This field is required ***
+                   </div>
+                    </div>
+                
+                    <!-- 2 column grid layout for inline styling -->
+                    <div class="row mb-4">
+                    <div class="col d-flex justify-content-center">
+                        <!-- Checkbox -->
+                        <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="form2Example31" checked />
+                        <label class="form-check-label" for="form2Example31"> Remember me </label>
+                        </div>
+                    </div>
+            
+                    </div>
+                
+                    <!-- Submit button -->
+                    <div class="d-flex justify-content-center">
+                    <button type="button" class="btn btn-primary btn-block mb-4 col-12" (click)="login()" [disabled]="loginForm.invalid">Login</button>
+                    </div>
+                    <!-- Register buttons -->
+                    <div class="text-center">
+                    <p>Not a member? <a routerLink="/signup">Register</a></p>
+                    <p>or sign up with:</p>
+                    
+                    </div>
+                </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+                

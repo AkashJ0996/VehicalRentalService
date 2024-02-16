@@ -1,0 +1,5 @@
+package com.auto.in.configuration;
+
+public class WebSecurityConfiguration {
+
+}

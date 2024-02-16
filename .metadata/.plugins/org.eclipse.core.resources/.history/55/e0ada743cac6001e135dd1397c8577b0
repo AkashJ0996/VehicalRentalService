@@ -1,0 +1,9 @@
+package com.auto.in.services.admin;
+
+import com.auto.in.dto.CarDto;
+
+public interface AdminService {
+	
+	boolean postCar(CarDto carDto);
+
+}

@@ -1,0 +1,46 @@
+.child {
+    padding: 0px;
+    width: 90%; /* Adjust as needed */
+    max-width: 800px; /* Limit the maximum width */
+    margin: 0 auto;
+    box-shadow: 2px 2px 15px -7px rgba(37, 37, 75, 1);
+    border-radius: 5px;
+    margin-bottom: 30px;
+}
+
+.row {
+    padding: 10px;
+    width: 100%; 
+    max-width: 800; 
+    background-color: white;
+    border-radius: 5px;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+i {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+p {
+    margin-bottom: 0.5em; 
+}
+
+h2:hover {
+    text-decoration: underline; 
+}
+.vertical-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%; 
+}
+.pagination {
+    width: 90%;
+    max-width: 800px; 
+    border-radius: 5px;
+    margin: 0 auto;
+    padding-bottom: 20px;
+    margin-top: 20px;
+}

@@ -1,0 +1,5 @@
+package com.auto.in.dto;
+
+public class CarDto {
+
+}

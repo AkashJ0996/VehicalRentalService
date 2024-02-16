@@ -1,0 +1,5 @@
+package com.auto.in.services.admin;
+
+public class AdminServiceImpl {
+
+}

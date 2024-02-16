@@ -1,0 +1,83 @@
+
+<div class="col-12 mt-5 " style=" padding : 25px; "> 
+ <div class="card" style="border-radius: 10px; background-color: rgb(37, 37, 75);">
+
+                    <form [formGroup]="searchCarForm" class="row g-3">
+
+                        <div class="col-md-3 mb-3">
+                            <select class="form-control" formControlName="brand">
+                                <option value="" disabled selected>Select a brand name</option>
+                                <ng-container *ngFor="let brand of listOfBrands">
+                                    <option [value]="brand">{{brand}}</option>
+                                </ng-container>
+                            </select>
+                            <label class="form-label" for="form3Example4cg">Brand of Vehicle</label>
+                        </div>
+
+                        <div class="col-md-3 mb-3">
+                            <select class="form-control" formControlName="type" required>
+                                <option value="" disabled selected>Select a Type</option>
+                                <ng-container *ngFor="let type of listOfTypes">
+                                    <option [value]="type">{{type}}</option>
+                                </ng-container>
+                            </select>
+                            <label class="form-label" for="form3Example4cg">Type of Vehicle</label>
+                        </div>
+
+                        <div class="col-md-3 mb-3">
+                            <select class="form-control" formControlName="transmission" required>
+                                <option value="" disabled selected>Select a Transmission</option>
+                                <ng-container *ngFor="let transmission of listOfTransmission">
+                                    <option [value]="transmission">{{transmission}}</option>
+                                </ng-container>
+                            </select>
+                            <label class="form-label" for="form3Example4cg">Mode of Transmission</label>
+                        </div>
+
+                        <div class="col-md-3 mb-3">
+                            <select class="form-control" formControlName="color" required>
+                                <option value="" disabled selected>Select a Color</option>
+                                <ng-container *ngFor="let color of  listOfColors">
+                                    <option [value]="color">{{color}}</option>
+                                </ng-container>
+                            </select>
+                            <label class="form-label" for="form3Example4cg">Color of Vehicle</label>
+                            <div class="invalid-feedback">This Input is Required!</div>
+                        </div>
+
+                        <div class="col-12 mb-3">
+                            <div class="d-flex justify-content-center">
+                                <button type="button" style="background-color: rgb(35, 35, 73); color: white;" class="btn  btn-lg col-3"
+                                    (click)="searchCar()">Search</button>
+                            </div>
+                        </div>
+
+                    </form>
+
+                </div>
+      </div>
+
+
+
+<div style="background-color: #ffffff; ">
+    <div class="child" style="margin-bottom: 30px;" *ngFor="let car of cars">
+        <div class="row">
+            <div class="col-8">
+                <img [src]="car.processedImage" class="profile" alt="profile"
+                    style="height: 130px; width: 200px; border-radius: 10px;" />
+            </div>
+            <div class="col-16">
+                <h2 style="cursor: pointer; color: rgb(35, 35, 73);">
+                    {{car.brand}}-{{car.name}}
+                </h2>
+                <p class="card-text"> {{car.description}}</p>
+                <hr>
+                <h5>Price : <b>${{car.price}}</b> - Color : <b>{{car.color}} </b>- Transmission :
+                    <b>{{car.transmission}}</b> - Type : <b>{{car.type}}</b>
+                </h5>
+                <hr>
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,73 @@
+<div class="container h-100 mt-5">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+    <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+        <div class="card" style="border-radius: 15px;">
+        <div class="card-body p-5">
+            <h2 class="text-uppercase text-center mb-5">Create Your Account </h2>
+            <div class="alert alert-success" role="alert" *ngIf="created">
+                SignUp Successful !... , Please Login To Activate Your Account . 
+                <button style="color: red; background-color: white;" (click)="removemsg()" type="button" data-bs-dismiss = "alert" aria-label="Close">x</button>
+            </div>
+            <form [formGroup] ="signupForm">
+
+            <div class="form-outline mb-4">
+                <input type="text" id="form3Example1cg" class="form-control form-control-lg" formControlName="name"/>
+                <label class="form-label" for="form3Example1cg">Your Name</label>
+                <div class="alert alert-danger" *ngIf="signupForm.get('name').invalid && signupForm.get('name').touched">
+                    This feild can not be empty 
+                </div>
+               
+            </div>
+
+            <div class="form-outline mb-4">
+                <input type="email" id="form3Example3cg" class="form-control form-control-lg" formControlName="email" />
+                <label class="form-label" for="form3Example3cg">Your Email</label>
+                <div class="alert alert-danger" *ngIf="signupForm.get('email').invalid && signupForm.get('email').touched">
+                     Check your email id 
+                </div>
+            </div>
+
+            <div class="form-outline mb-4">
+                <input type="password" id="form3Example4cg" class="form-control form-control-lg" formControlName="password" />
+                <label class="form-label" for="form3Example4cg">Password</label>
+                <div class="alert alert-danger" *ngIf="signupForm.get('password').invalid && signupForm.get('password').touched ">
+                    this feild can not be empty
+                </div>
+            </div>
+
+            <div class="form-outline mb-4">
+                <input type="password" id="form3Example4cdg" class="form-control form-control-lg" formControlName="checkPassword"/>
+                <label class="form-label" for="form3Example4cdg">Confirm your password</label>
+                <div class="alert alert-danger" *ngIf="signupForm.get('checkPassword').invalid && signupForm.get('checkPassword').touched ">
+                    Password didn't matched , please check your password !
+                </div>
+            </div>
+
+            <div class="form-check d-flex justify-content-center mb-5">
+                <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3cg" formControlName="mark" />
+                <label class="form-check-label" for="form2Example3g">
+                I agree all statements in <a href="#!" class="text-body"><u>Terms of service</u></a>
+                </label>
+                <div class="alert alert-danger" *ngIf="signupForm.get('mark').invalid && signupForm.get('mark').touched ">
+                    Please mark checkd if you are agree with terms and conditions !
+                </div>
+            </div>
+
+            <div class="d-flex justify-content-center">
+                <button type="button"
+                class="btn btn-primary btn-block btn-lg col-12 " (click)="register()" [disabled]="signupForm.invalid" >Register</button>
+                
+            </div>
+            
+            
+
+            <p class="text-center text-muted mt-5 mb-0">Have already an account? <a routerLink="/login"
+                class="fw-bold text-body"><u>Login here</u></a></p>
+
+            </form>
+
+        </div>
+        </div>
+    </div>
+    </div>
+</div>

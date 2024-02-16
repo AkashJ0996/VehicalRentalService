@@ -1,0 +1,27 @@
+package com.auto.in.controller;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.auto.in.dto.CarDto;
+import com.auto.in.services.admin.AdminService;
+
+import lombok.RequiredArgsConstructor;
+
+@RestController
+@RequestMapping("/api/admin")
+@RequiredArgsConstructor
+public class AdminController {
+	
+	private final AdminService adminService;
+	
+	public ResponseEntity<?> postCars(@ModelAttribute CarDto carDto){
+		boolean postCar = adminService.postCar(carDto);
+		return new ResponseEntity<>(postCar , HttpStatus.CREATED);
+	}
+
+}

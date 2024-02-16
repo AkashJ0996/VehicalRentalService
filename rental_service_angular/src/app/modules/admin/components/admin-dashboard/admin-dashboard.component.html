@@ -1,0 +1,27 @@
+<div style="background-color: #d9d5ec; min-height: 91vh;">
+    <div style="padding-top: 10px;">
+        <div class="child" style="margin-top: 10px;" *ngFor="let car of cars">
+            <div class="row">
+                <div class="col-8">
+                <img [src]="car.processedImg" class="profile" alt="profile"
+                    style="height: 130px; width: 200px; border-radius: 10px;" />
+                </div>
+                <div class="col-16">
+                    <h2 style="cursor: pointer; color: rgb(35, 35, 73);">
+                        {{car.brand}}-{{car.name}}
+                    </h2>
+                    <p class="card-text"> {{car.description}}</p>
+                    <hr>
+                    <h5>Price : <b>${{car.price}}</b> - Color : <b>{{car.color}} </b>- Transmission :
+                        <b>{{car.transmission}}</b> - Type : <b>{{car.type}}</b>
+                    </h5>
+                    <hr>
+                    <div style="float: right;">
+                        <button style="margin-left: 10px;"  class="btn btn-sm btn-warning" routerLink="/admin/cars/{{car.id}}" >Update</button>
+                        <button style="margin-left: 10px;"  class="btn btn-sm btn-danger" (click)="deleteCar(car.id)">Delete</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
